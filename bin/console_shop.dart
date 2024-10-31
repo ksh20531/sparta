@@ -41,6 +41,9 @@ void main(List<String> arguments) {
             stdout.writeln("종료하지 않습니다.");
           }
           break;
+        case 6:
+          shoppingMall.clearCart();
+          break;
         default:
           stdout.writeln("지원하지 않는 기능입니다 ! 다시 시도해 주세요 ..");
           break;

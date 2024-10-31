@@ -53,4 +53,14 @@ class ShoppingMall {
   showTotalPrice() {
     stdout.writeln('장바구니에 $totalPrice원 어치를 담으셨네요 !');
   }
+
+  /// 카트 초기화
+  clearCart() {
+    if (totalPrice > 0) {
+      stdout.writeln('장바구니를 초기화합니다.');
+      totalPrice = 0;
+    } else {
+      stdout.writeln('이미 장바구니가 비었습니다.');
+    }
+  }
 }
