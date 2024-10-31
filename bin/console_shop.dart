@@ -20,6 +20,13 @@ void main(List<String> arguments) {
     stdout.writeln(
         '-----------------------------------------------------------------------------------');
 
+    /**
+     * 1. 상품 목록 출력
+     * 2. 상품을 장바구니에 추가
+     * 3. 장바구니에 담긴 상품의 상품 가격의 총 합
+     * 4. 프로그램 종료
+     * 6. 장바구니 초기화
+     */
     try {
       int selectedMenu = int.parse(stdin.readLineSync()!);
       switch (selectedMenu) {

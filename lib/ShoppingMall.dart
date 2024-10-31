@@ -2,9 +2,9 @@ import 'dart:io';
 import 'package:console_shop/Product.dart';
 
 class ShoppingMall {
-  int totalPrice = 0;
-  List<Product> productList = [];
-  Set<String> selectedProductList = {};
+  int totalPrice = 0; // 장바구니 상품 총 가격
+  List<Product> productList = []; // 상품 목록
+  Set<String> selectedProductList = {}; // 장바구니에 담긴 상품 목록
 
   ShoppingMall(this.productList);
 
@@ -18,12 +18,14 @@ class ShoppingMall {
   /// 상품을 장바구니에 추가
   addToCart() {
     try {
-      int selectedProductPrice = 0;
+      int selectedProductPrice = 0; // 선택한 상품의 가격
 
+      // 상품 선택
       stdout.writeln('상품 이름을 입력해 주세요 !');
       String? productName = stdin.readLineSync()!;
       bool isProduct = false;
 
+      // 선택한 상품을 장바구니에 추가하고, totalPrice 값 증가
       for (int i = 0; i < productList.length; i++) {
         if (productList[i].productName == productName) {
           selectedProductPrice = productList[i].productPrice;
@@ -37,6 +39,7 @@ class ShoppingMall {
         throw Exception();
       }
 
+      // 상품 갯수 입력
       stdout.writeln('상품 개수를 입력해 주세요 !');
       String? stringCnt = stdin.readLineSync()!;
       int quantity = int.parse(stringCnt);
@@ -59,7 +62,7 @@ class ShoppingMall {
     stdout.writeln('장바구니에 $cartProducts가 담겨있네요. 총 $totalPrice원 입니다!');
   }
 
-  /// 카트 초기화
+  /// 장바구니 초기화
   clearCart() {
     if (totalPrice > 0) {
       stdout.writeln('장바구니를 초기화합니다.');
