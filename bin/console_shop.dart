@@ -10,7 +10,7 @@ void main(List<String> arguments) {
   Product socks = Product('양말', 5000);
   List<Product> productList = [shirt, onepice, tShirt, short, socks];
 
-  ShoppingMall shoppingMall = ShoppingMall();
+  ShoppingMall shoppingMall = ShoppingMall(productList);
 
   while (true) {
     stdout.writeln(
@@ -24,10 +24,10 @@ void main(List<String> arguments) {
       int selectedMenu = int.parse(stdin.readLineSync()!);
       switch (selectedMenu) {
         case 1:
-          shoppingMall.showProducts(productList);
+          shoppingMall.showProducts();
           break;
         case 2:
-          shoppingMall.addToCart(productList);
+          shoppingMall.addToCart();
           break;
         case 3:
           shoppingMall.showTotalPrice();

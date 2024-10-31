@@ -2,18 +2,21 @@ import 'dart:io';
 import 'package:console_shop/Product.dart';
 
 class ShoppingMall {
-  List<Product> productList = [];
   int totalPrice = 0;
+  List<Product> productList = [];
+  Set<String> selectedProductList = {};
+
+  ShoppingMall(this.productList);
 
   /// 상품 목록 출력
-  showProducts(List<Product> productList) {
+  showProducts() {
     for (Product p in productList) {
       stdout.writeln('${p.productName} / ${p.productPrice}원');
     }
   }
 
   /// 상품을 장바구니에 추가
-  addToCart(List<Product> productList) {
+  addToCart() {
     try {
       int selectedProductPrice = 0;
 
@@ -24,6 +27,7 @@ class ShoppingMall {
       for (int i = 0; i < productList.length; i++) {
         if (productList[i].productName == productName) {
           selectedProductPrice = productList[i].productPrice;
+          selectedProductList.add(productList[i].productName);
           isProduct = true;
           break;
         }
@@ -51,7 +55,8 @@ class ShoppingMall {
 
   /// 장바구니에 담긴 상품의 상품 가격의 총 합
   showTotalPrice() {
-    stdout.writeln('장바구니에 $totalPrice원 어치를 담으셨네요 !');
+    String cartProducts = selectedProductList.reduce((c, n) => '$c, $n');
+    stdout.writeln('장바구니에 $cartProducts가 담겨있네요. 총 $totalPrice원 입니다!');
   }
 
   /// 카트 초기화
@@ -59,6 +64,7 @@ class ShoppingMall {
     if (totalPrice > 0) {
       stdout.writeln('장바구니를 초기화합니다.');
       totalPrice = 0;
+      selectedProductList = {};
     } else {
       stdout.writeln('이미 장바구니가 비었습니다.');
     }
