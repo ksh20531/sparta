@@ -8,7 +8,7 @@ class ShoppingMall {
   /// 상품 목록 출력
   showProducts(List<Product> productList) {
     for (Product p in productList) {
-      stdout.writeln('${p.productName} / ${p.productPrice}');
+      stdout.writeln('${p.productName} / ${p.productPrice}원');
     }
   }
 
