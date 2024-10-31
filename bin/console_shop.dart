@@ -1,7 +1,18 @@
 import 'dart:io';
+import 'package:console_shop/Product.dart';
+import 'package:console_shop/ShoppingMall.dart';
 
 void main(List<String> arguments) {
   List<int> menus = [1, 2, 3, 4];
+
+  Product shirt = Product('셔츠', 45000);
+  Product onepice = Product('원피스', 30000);
+  Product tShirt = Product('반팔티', 35000);
+  Product short = Product('반바지', 38000);
+  Product socks = Product('양말', 5000);
+  List<Product> productList = [shirt, onepice, tShirt, short, socks];
+
+  ShoppingMall shoppingMall = ShoppingMall();
 
   while (true) {
     stdout.writeln(
@@ -13,13 +24,25 @@ void main(List<String> arguments) {
 
     try {
       int selectedMenu = int.parse(stdin.readLineSync()!);
-      if (selectedMenu != 4 && menus.contains(selectedMenu)) {
-        stdout.writeln('선택한 메뉴 : $selectedMenu');
-      } else if (selectedMenu == 4) {
-        stdout.writeln("이용해 주셔서 감사합니다 ~ 안녕히 가세요 !");
-        break;
+      switch (selectedMenu) {
+        case 1:
+          shoppingMall.showProducts(productList);
+          break;
+        case 2:
+          shoppingMall.addToCart();
+          break;
+        case 3:
+          shoppingMall.showTotalPrice();
+          break;
+        case 4:
+          stdout.writeln("이용해 주셔서 감사합니다 ~ 안녕히 가세요 !");
+          return;
+        default:
+          stdout.writeln("지원하지 않는 기능입니다 ! 다시 시도해 주세요 ..");
+          break;
       }
     } catch (e) {
+      stdout.writeln("지원하지 않는 기능입니다 ! 다시 시도해 주세요 ..");
       continue;
     }
   }
