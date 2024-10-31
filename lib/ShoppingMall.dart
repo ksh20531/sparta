@@ -50,5 +50,7 @@ class ShoppingMall {
   }
 
   /// 장바구니에 담긴 상품의 상품 가격의 총 합
-  showTotalPrice() {}
+  showTotalPrice() {
+    stdout.writeln('장바구니에 $totalPrice원 어치를 담으셨네요 !');
+  }
 }
