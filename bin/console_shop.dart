@@ -3,8 +3,6 @@ import 'package:console_shop/Product.dart';
 import 'package:console_shop/ShoppingMall.dart';
 
 void main(List<String> arguments) {
-  List<int> menus = [1, 2, 3, 4];
-
   Product shirt = Product('셔츠', 45000);
   Product onepice = Product('원피스', 30000);
   Product tShirt = Product('반팔티', 35000);
@@ -29,14 +27,20 @@ void main(List<String> arguments) {
           shoppingMall.showProducts(productList);
           break;
         case 2:
-          shoppingMall.addToCart();
+          shoppingMall.addToCart(productList);
           break;
         case 3:
           shoppingMall.showTotalPrice();
           break;
         case 4:
-          stdout.writeln("이용해 주셔서 감사합니다 ~ 안녕히 가세요 !");
-          return;
+          stdout.writeln("정말 종료하시겠습니까?");
+          if (int.parse(stdin.readLineSync()!) == 5) {
+            stdout.writeln("이용해 주셔서 감사합니다 ~ 안녕히 가세요 !");
+            return;
+          } else {
+            stdout.writeln("종료하지 않습니다.");
+          }
+          break;
         default:
           stdout.writeln("지원하지 않는 기능입니다 ! 다시 시도해 주세요 ..");
           break;
