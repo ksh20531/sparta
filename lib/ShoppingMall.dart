@@ -43,7 +43,7 @@ class ShoppingMall {
 
       totalPrice += selectedProductPrice * quantity;
 
-      stdout.writeln('장바구니에 $totalPrice원 어치를 담으셨네요 !');
+      stdout.writeln('장바구니에 상품이 담겼어요 !');
     } catch (e) {
       stdout.writeln('입력 값이 올바르지 않아요 !');
     }
