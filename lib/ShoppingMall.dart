@@ -22,22 +22,16 @@ class ShoppingMall {
 
       // 상품 선택
       stdout.writeln('상품 이름을 입력해 주세요 !');
-      String? productName = stdin.readLineSync()!;
-      bool isProduct = false;
+      String? inputProductName = stdin.readLineSync()!;
 
       // 선택한 상품을 장바구니에 추가하고, totalPrice 값 증가
-      for (int i = 0; i < productList.length; i++) {
-        if (productList[i].productName == productName) {
-          selectedProductPrice = productList[i].productPrice;
-          selectedProductList.add(productList[i].productName);
-          isProduct = true;
-          break;
-        }
-      }
+      Product selectedProduct = productList.firstWhere(
+        (product) => product.productName == inputProductName,
+        orElse: () => throw Exception("입력 값이 올바르지 않아요 !"),
+      );
 
-      if (!isProduct) {
-        throw Exception();
-      }
+      selectedProductPrice = selectedProduct.productPrice;
+      selectedProductList.add(selectedProduct.productName);
 
       // 상품 갯수 입력
       stdout.writeln('상품 개수를 입력해 주세요 !');
