@@ -1,2 +1,19 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+## 콘솔 쇼핑몰
+
+---
+
+#### 개발 기간
+
+2024.10.31 ~ 2024.11.01
+
+#### 기능
+
+1. 상품 목록 보기
+
+2. 장바구니에 담기
+
+3. 장바구니에 담긴 상품의 총 가격 보기(도전 기능 구현)
+
+4. 프로그램 종료(도전 기능 구현)
+
+5. 장바구니 초기화(도전 기능 구현)
